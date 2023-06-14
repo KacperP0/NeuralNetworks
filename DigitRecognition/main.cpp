@@ -75,7 +75,7 @@ public:
             double sumError = 0.0;
             for (std::size_t j = 0; j < outputLayerGradient.size(); ++j)
                 sumError += outputLayerGradient[j] * outputLayerWeights[j + i * outputLayerGradient.size()];
-            hiddenLayerGradient[i] = sumError;
+            hiddenLayerGradient[i] = sumError * sigmoidDerivative(hiddenLayer[i]);
         }
 
         for (int i = 0; i < hiddenLayer.size(); ++i) {
