@@ -222,6 +222,9 @@ DigitRecognition_SOURCE_DIR:STATIC=/Users/lusterclaws/Desktop/mdig-agh-lang_c__e
 //The directory containing a CMake configuration file for OpenCV.
 OpenCV_DIR:PATH=/opt/homebrew/lib/cmake/opencv4
 
+//The directory containing a CMake configuration file for nlohmann_json.
+nlohmann_json_DIR:PATH=/opt/homebrew/share/cmake/nlohmann_json
+
 //Value Computed by CMake
 untitled_BINARY_DIR:STATIC=/Users/lusterclaws/Desktop/mdig-agh-lang_c__exercises-8b07bfe7cc20/projekty/DigitRecognition/cmake-build-debug
 
@@ -369,4 +372,6 @@ CMAKE_UNAME:INTERNAL=/usr/bin/uname
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding OpenCV
 FIND_PACKAGE_MESSAGE_DETAILS_OpenCV:INTERNAL=[/opt/homebrew/Cellar/opencv/4.7.0_6][v4.7.0()]
+//Details about finding nlohmann_json
+FIND_PACKAGE_MESSAGE_DETAILS_nlohmann_json:INTERNAL=[/opt/homebrew/share/cmake/nlohmann_json/nlohmann_jsonConfig.cmake][v3.11.2(3.11.2)]
 

@@ -3,6 +3,9 @@
 #include <cmath>
 #include <opencv2/opencv.hpp>
 #include <iostream>
+#include <fstream>
+
+
 void printVector(const std::vector<double>& vec) {
     for (const auto& it : vec)
         std::cout << it << " ";
@@ -45,7 +48,7 @@ public:
         for (std::size_t i = 0; i < hiddenLayer.size(); ++i) {
             double sum = 0.0;
             for (std::size_t j = 0; j < inputLayer.size(); ++j) {
-                sum += inputLayer[j] * hiddenLayerWeights[j + i * hiddenLayer.size()];
+                sum += inputLayer[j] * hiddenLayerWeights[i + j * hiddenLayer.size()];
             }
             hiddenLayer[i] = sigmoid(sum);
         }
@@ -53,7 +56,7 @@ public:
         for (std::size_t i = 0; i < outputLayer.size(); ++i) {
             double sum = 0.0;
             for (std::size_t j = 0; j < hiddenLayer.size(); ++j) {
-                sum += hiddenLayer[j] * outputLayerWeights[j + i * outputLayer.size()];
+                sum += hiddenLayer[j] * outputLayerWeights[i + j * outputLayer.size()];
             }
             outputLayer[i] = sigmoid(sum);
         }
@@ -66,7 +69,7 @@ public:
     void backPropagation(const std::vector<double>& target) {
         std::vector<double> outputLayerGradient(outputLayer.size());
         for (std::size_t i = 0; i < outputLayer.size(); ++i)
-            outputLayerGradient[i] = (target[i] - outputLayer[i]);
+            outputLayerGradient[i] = (target[i] - outputLayer[i]) * sigmoidDerivative(outputLayer[i]);
 
         std::vector<double> hiddenLayerGradient(hiddenLayer.size());
         for (std::size_t i = 0; i < hiddenLayerGradient.size(); ++i) {
@@ -98,40 +101,103 @@ private:
     double learningRate;
 };
 
+std::vector<std::vector<double>> preprocess(std::string imagesFilePath) {
+    std::ifstream imagesFile(imagesFilePath, std::ios::binary);
 
-
-std::vector<double> preprocessImage(const cv::Mat& image) {
-    cv::Mat resizedImage;
-    cv::resize(image, resizedImage, cv::Size(14, 14));
-    cv::Mat normalizedImage;
-    resizedImage.convertTo(normalizedImage, CV_32F, 1.0 / 255.0);
-    std::vector<double> flattenedImage;
-    if (normalizedImage.isContinuous()) {
-        flattenedImage.assign(normalizedImage.datastart, normalizedImage.dataend);
-    } else {
-        for (int i = 0; i < normalizedImage.rows; ++i) {
-            flattenedImage.insert(flattenedImage.end(), normalizedImage.ptr<float>(i), normalizedImage.ptr<float>(i) + normalizedImage.cols);
-        }
+    if (!imagesFile) {
+        throw std::invalid_argument("Failed to open images file.");;
     }
-    return flattenedImage;
+
+    int numImages = 0;
+    int imageRows = 0;
+    int imageCols = 0;
+
+    imagesFile.read(reinterpret_cast<char*>(&numImages), 4);
+    imagesFile.read(reinterpret_cast<char*>(&imageRows), 4);
+    imagesFile.read(reinterpret_cast<char*>(&imageCols), 4);
+
+    numImages = ntohl(numImages);
+    imageRows = ntohl(imageRows);
+    imageCols = ntohl(imageCols);
+
+    std::vector<std::vector<double>> images;
+    images.reserve(numImages);
+
+    for (int i = 0; i < numImages; ++i) {
+        cv::Mat image(imageRows, imageCols, CV_8UC1);
+
+        imagesFile.read(reinterpret_cast<char*>(image.data), imageRows * imageCols);
+
+        cv::resize(image, image, cv::Size(28, 28));
+
+        if (image.empty()) {
+            std::cout << "Failed to resize the image." << std::endl;
+            continue;
+        }
+
+        std::vector<double> imageVec(image.rows * image.cols);
+        for (int r = 0; r < image.rows; ++r) {
+            for (int c = 0; c < image.cols; ++c) {
+                imageVec[r * image.cols + c] = static_cast<double>(image.at<uchar>(r, c)) / 255.0;
+            }
+        }
+
+        images.push_back(imageVec);
+    }
+
+    imagesFile.close();
+
+    return images;
+}
+
+
+std::vector<std::vector<double>> createLabels(std::string labelsFilePath) {
+
+    std::ifstream labelsFile(labelsFilePath, std::ios::binary);
+
+    if (!labelsFile) {
+        throw std::invalid_argument("Failed to open labelsFIle");
+    }
+
+    int numLabels = 0;
+
+    labelsFile.read(reinterpret_cast<char*>(&numLabels), 4);
+
+    numLabels = ntohl(numLabels);
+
+    std::vector<std::vector<double>> targetOutputs;
+    targetOutputs.reserve(numLabels);
+
+    for (int i = 0; i < numLabels; ++i) {
+        unsigned char label = 0;
+        labelsFile.read(reinterpret_cast<char*>(&label), 1);
+
+
+        std::vector<double> targetOutput(10, 0.0);
+
+        targetOutput[label] = 1.0;
+
+        targetOutputs.push_back(targetOutput);
+    }
+
+    labelsFile.close();
+
+    return targetOutputs;
 }
 
 int main() {
-    cv::Mat image = cv::imread("/Users/lusterclaws/Desktop/mdig-agh-lang_c__exercises-8b07bfe7cc20/projekty/DigitRecognition/photo/mnist_first_digit.png", cv::IMREAD_GRAYSCALE);
-
-    if (image.empty()) {
-        std::cout << "Failed to load image." << std::endl;
-        return -1;
-    }
-
-    const std::vector<double> input = preprocessImage(image);
+    std::vector<std::vector<double>> inputs = preprocess("/Users/lusterclaws/Desktop/train-images-idx3-ubyte");
+    std::vector<std::vector<double>> targets = createLabels("/Users/lusterclaws/Desktop/train-labels-idx1-ubyte");
     neuralNetwork net(784, 128, 10, 0.1);
-    std::vector<double> target = {0, 0, 0, 0, 0, 1, 0, 0, 0, 0};
-    for (int i = 0; i < 100; i++) {
-        net.forwardPropagation(input);
-        net.backPropagation(target);
+    for (std::size_t numEpochs = 0; numEpochs < 10; ++numEpochs) {
+        for (std::size_t i = 0; i < 100; i++) {
+            net.forwardPropagation(inputs[i]);
+            net.backPropagation(targets[i]);
+        }
     }
+    net.forwardPropagation(inputs[105]);
     net.print_output();
+    printVector(targets[105]);
     return 0;
 }
 
