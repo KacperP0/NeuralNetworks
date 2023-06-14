@@ -33,7 +33,6 @@ public:
     }
 
     void initializeWeights() {
-        // Initialize weights randomly between -1 and 1
         for (int i = 0; i < hiddenLayerWeights.size(); ++i) {
             hiddenLayerWeights[i] = ((double) rand() / RAND_MAX) * 2 - 1;
         }
