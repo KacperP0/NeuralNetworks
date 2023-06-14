@@ -1,0 +1,183 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/Users/lusterclaws/Desktop/mdig-agh-lang_c__exercises-8b07bfe7cc20/projekty/untitled/modules/videoio/include/opencv2/videoio.hpp",
+			"labels" : 
+			[
+				"Main",
+				"opencv_videoio",
+				"Module"
+			]
+		},
+		{
+			"file" : "/Users/lusterclaws/Desktop/mdig-agh-lang_c__exercises-8b07bfe7cc20/projekty/untitled/modules/videoio/include/opencv2/videoio/cap_ios.h",
+			"labels" : 
+			[
+				"Main",
+				"opencv_videoio",
+				"Module"
+			]
+		},
+		{
+			"file" : "/Users/lusterclaws/Desktop/mdig-agh-lang_c__exercises-8b07bfe7cc20/projekty/untitled/modules/videoio/include/opencv2/videoio/container_avi.private.hpp",
+			"labels" : 
+			[
+				"Main",
+				"opencv_videoio",
+				"Module"
+			]
+		},
+		{
+			"file" : "/Users/lusterclaws/Desktop/mdig-agh-lang_c__exercises-8b07bfe7cc20/projekty/untitled/modules/videoio/include/opencv2/videoio/legacy/constants_c.h",
+			"labels" : 
+			[
+				"Main",
+				"opencv_videoio",
+				"Module"
+			]
+		},
+		{
+			"file" : "/Users/lusterclaws/Desktop/mdig-agh-lang_c__exercises-8b07bfe7cc20/projekty/untitled/modules/videoio/include/opencv2/videoio/registry.hpp",
+			"labels" : 
+			[
+				"Main",
+				"opencv_videoio",
+				"Module"
+			]
+		},
+		{
+			"file" : "/Users/lusterclaws/Desktop/mdig-agh-lang_c__exercises-8b07bfe7cc20/projekty/untitled/modules/videoio/include/opencv2/videoio/videoio.hpp",
+			"labels" : 
+			[
+				"Main",
+				"opencv_videoio",
+				"Module"
+			]
+		},
+		{
+			"file" : "/Users/lusterclaws/Desktop/mdig-agh-lang_c__exercises-8b07bfe7cc20/projekty/untitled/modules/videoio/include/opencv2/videoio/videoio_c.h",
+			"labels" : 
+			[
+				"Main",
+				"opencv_videoio",
+				"Module"
+			]
+		},
+		{
+			"file" : "/Users/lusterclaws/Desktop/mdig-agh-lang_c__exercises-8b07bfe7cc20/projekty/untitled/modules/videoio/src/precomp.hpp",
+			"labels" : 
+			[
+				"Main",
+				"opencv_videoio",
+				"Module"
+			]
+		},
+		{
+			"file" : "/Users/lusterclaws/Desktop/mdig-agh-lang_c__exercises-8b07bfe7cc20/projekty/untitled/modules/videoio/src/videoio_registry.cpp",
+			"labels" : 
+			[
+				"Main",
+				"opencv_videoio",
+				"Module"
+			]
+		},
+		{
+			"file" : "/Users/lusterclaws/Desktop/mdig-agh-lang_c__exercises-8b07bfe7cc20/projekty/untitled/modules/videoio/src/videoio_c.cpp",
+			"labels" : 
+			[
+				"Main",
+				"opencv_videoio",
+				"Module"
+			]
+		},
+		{
+			"file" : "/Users/lusterclaws/Desktop/mdig-agh-lang_c__exercises-8b07bfe7cc20/projekty/untitled/modules/videoio/src/cap.cpp",
+			"labels" : 
+			[
+				"Main",
+				"opencv_videoio",
+				"Module"
+			]
+		},
+		{
+			"file" : "/Users/lusterclaws/Desktop/mdig-agh-lang_c__exercises-8b07bfe7cc20/projekty/untitled/modules/videoio/src/cap_images.cpp",
+			"labels" : 
+			[
+				"Main",
+				"opencv_videoio",
+				"Module"
+			]
+		},
+		{
+			"file" : "/Users/lusterclaws/Desktop/mdig-agh-lang_c__exercises-8b07bfe7cc20/projekty/untitled/modules/videoio/src/cap_mjpeg_encoder.cpp",
+			"labels" : 
+			[
+				"Main",
+				"opencv_videoio",
+				"Module"
+			]
+		},
+		{
+			"file" : "/Users/lusterclaws/Desktop/mdig-agh-lang_c__exercises-8b07bfe7cc20/projekty/untitled/modules/videoio/src/cap_mjpeg_decoder.cpp",
+			"labels" : 
+			[
+				"Main",
+				"opencv_videoio",
+				"Module"
+			]
+		},
+		{
+			"file" : "/Users/lusterclaws/Desktop/mdig-agh-lang_c__exercises-8b07bfe7cc20/projekty/untitled/modules/videoio/src/backend_plugin.cpp",
+			"labels" : 
+			[
+				"Main",
+				"opencv_videoio",
+				"Module"
+			]
+		},
+		{
+			"file" : "/Users/lusterclaws/Desktop/mdig-agh-lang_c__exercises-8b07bfe7cc20/projekty/untitled/modules/videoio/src/backend_static.cpp",
+			"labels" : 
+			[
+				"Main",
+				"opencv_videoio",
+				"Module"
+			]
+		},
+		{
+			"file" : "/Users/lusterclaws/Desktop/mdig-agh-lang_c__exercises-8b07bfe7cc20/projekty/untitled/modules/videoio/src/container_avi.cpp",
+			"labels" : 
+			[
+				"Main",
+				"opencv_videoio",
+				"Module"
+			]
+		},
+		{
+			"file" : "/Users/lusterclaws/Desktop/mdig-agh-lang_c__exercises-8b07bfe7cc20/projekty/untitled/modules/videoio/src/cap_avfoundation_mac.mm",
+			"labels" : 
+			[
+				"Main",
+				"opencv_videoio",
+				"Module"
+			]
+		},
+		{
+			"file" : "/Users/lusterclaws/Desktop/mdig-agh-lang_c__exercises-8b07bfe7cc20/projekty/untitled/cmake-build-debug/cvconfig.h"
+		},
+		{
+			"file" : "/Users/lusterclaws/Desktop/mdig-agh-lang_c__exercises-8b07bfe7cc20/projekty/untitled/cmake-build-debug/opencv2/opencv_modules.hpp"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"Main",
+			"opencv_videoio",
+			"Module"
+		],
+		"name" : "opencv_videoio"
+	}
+}
