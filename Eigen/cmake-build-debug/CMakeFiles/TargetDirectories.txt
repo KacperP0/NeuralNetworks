@@ -1,0 +1,3 @@
+/Users/lusterclaws/Desktop/mdig-agh-lang_c__exercises-8b07bfe7cc20/projekty/Eigen/cmake-build-debug/CMakeFiles/Eigen__debug.dir
+/Users/lusterclaws/Desktop/mdig-agh-lang_c__exercises-8b07bfe7cc20/projekty/Eigen/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/lusterclaws/Desktop/mdig-agh-lang_c__exercises-8b07bfe7cc20/projekty/Eigen/cmake-build-debug/CMakeFiles/rebuild_cache.dir

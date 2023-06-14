@@ -1,0 +1,49 @@
+# Target labels
+ Main
+ opencv_imgcodecs
+ AccuracyTest
+# Source files and their labels
+/Users/lusterclaws/Desktop/mdig-agh-lang_c__exercises-8b07bfe7cc20/projekty/untitled/modules/imgcodecs/test/test_common.cpp
+ Main
+ opencv_imgcodecs
+ AccuracyTest
+/Users/lusterclaws/Desktop/mdig-agh-lang_c__exercises-8b07bfe7cc20/projekty/untitled/modules/imgcodecs/test/test_grfmt.cpp
+ Main
+ opencv_imgcodecs
+ AccuracyTest
+/Users/lusterclaws/Desktop/mdig-agh-lang_c__exercises-8b07bfe7cc20/projekty/untitled/modules/imgcodecs/test/test_jpeg.cpp
+ Main
+ opencv_imgcodecs
+ AccuracyTest
+/Users/lusterclaws/Desktop/mdig-agh-lang_c__exercises-8b07bfe7cc20/projekty/untitled/modules/imgcodecs/test/test_main.cpp
+ Main
+ opencv_imgcodecs
+ AccuracyTest
+/Users/lusterclaws/Desktop/mdig-agh-lang_c__exercises-8b07bfe7cc20/projekty/untitled/modules/imgcodecs/test/test_png.cpp
+ Main
+ opencv_imgcodecs
+ AccuracyTest
+/Users/lusterclaws/Desktop/mdig-agh-lang_c__exercises-8b07bfe7cc20/projekty/untitled/modules/imgcodecs/test/test_read_write.cpp
+ Main
+ opencv_imgcodecs
+ AccuracyTest
+/Users/lusterclaws/Desktop/mdig-agh-lang_c__exercises-8b07bfe7cc20/projekty/untitled/modules/imgcodecs/test/test_tiff.cpp
+ Main
+ opencv_imgcodecs
+ AccuracyTest
+/Users/lusterclaws/Desktop/mdig-agh-lang_c__exercises-8b07bfe7cc20/projekty/untitled/modules/imgcodecs/test/test_webp.cpp
+ Main
+ opencv_imgcodecs
+ AccuracyTest
+/Users/lusterclaws/Desktop/mdig-agh-lang_c__exercises-8b07bfe7cc20/projekty/untitled/modules/imgcodecs/test/test_common.hpp
+ Main
+ opencv_imgcodecs
+ AccuracyTest
+/Users/lusterclaws/Desktop/mdig-agh-lang_c__exercises-8b07bfe7cc20/projekty/untitled/modules/imgcodecs/test/test_exr.impl.hpp
+ Main
+ opencv_imgcodecs
+ AccuracyTest
+/Users/lusterclaws/Desktop/mdig-agh-lang_c__exercises-8b07bfe7cc20/projekty/untitled/modules/imgcodecs/test/test_precomp.hpp
+ Main
+ opencv_imgcodecs
+ AccuracyTest
